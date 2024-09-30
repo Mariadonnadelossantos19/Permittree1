@@ -60,11 +60,10 @@ const Order = () => {
 
       {/* Bill Number Section */}
       <div className="bill-info">
-        <div>
+        <div className="bill-no">
           <label htmlFor="billNo">Bill No.</label>
           <input type="text" id="billNo" name="billNo" value=" " readOnly />
         </div>
-        <p className="bill-date">09/02/2024</p>
       </div>
 
       {/* Name/Payee, Address, Nature of Application */}
@@ -168,6 +167,11 @@ const Order = () => {
           </button>
         )}
 
+        {/* Prepared by Section */}
+        <div className="prepared-by-section">
+          <label>Prepared by:</label>
+        </div>
+
         {/* Personnel Section */}
         <div className="signatures">
           <div className="prepared-by">
@@ -180,37 +184,47 @@ const Order = () => {
 
         {/* Payment and Release Information */}
         <div className="form-group-left">
-          <label htmlFor="paymentDate">Date of Payment:</label>
-          <input
-            type="date"
-            name="paymentDate"
-            value={formData.paymentDate}
-            onChange={handleChange}
-          />
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="paymentDate">Date of Payment:</label>
+              <input
+                type="date"
+                name="paymentDate"
+                value={formData.paymentDate}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="paymentTime">Time of Payment:</label>
+              <input
+                type="time"
+                name="paymentTime"
+                value={formData.paymentTime}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
 
-          <label htmlFor="paymentTime">Time of Payment:</label>
-          <input
-            type="time"
-            name="paymentTime"
-            value={formData.paymentTime}
-            onChange={handleChange}
-          />
-
-          <label htmlFor="releaseDate">Release Date:</label>
-          <input
-            type="date"
-            name="releaseDate"
-            value={formData.releaseDate}
-            onChange={handleChange}
-          />
-
-          <label htmlFor="releaseTime">Release Time:</label>
-          <input
-            type="time"
-            name="releaseTime"
-            value={formData.releaseTime}
-            onChange={handleChange}
-          />
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="releaseDate">Release Date:</label>
+              <input
+                type="date"
+                name="releaseDate"
+                value={formData.releaseDate}  
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="releaseTime">Release Time:</label>
+              <input
+                type="time"
+                name="releaseTime"
+                value={formData.releaseTime}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
         </div>
 
         {/* Submit Button */}

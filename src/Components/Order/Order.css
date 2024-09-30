@@ -1,36 +1,36 @@
 /* Container for the entire form */
 .order-container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
-    background-color: #f4f4f4;
-    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
   }
   
   /* Header section */
   .header {
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   
   .header h2 {
     font-size: 22px;
-    color: #3c6e47; /* Forest Green */
+    color: #2e7d32;
   }
   
   .header h4 {
     font-size: 14px;
-    color: #3c6e47; /* Forest Green */
+    color: #388e3c;
   }
   
   /* Bill info section */
   .bill-info {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+    justify-content: flex-end;
     align-items: center;
+    margin-bottom: 20px;
   }
   
   .bill-info div {
@@ -40,7 +40,14 @@
   
   .bill-info label {
     margin-right: 5px;
-    color: #3c6e47;
+    font-weight: bold;
+  }
+  
+  .bill-info input {
+    border: none;
+    background-color: #e0f2f1;
+    padding: 5px;
+    border-radius: 4px;
   }
   
   .bill-date {
@@ -49,16 +56,20 @@
   }
   
   /* Form input styling */
+  .form-group-left {
+    margin-bottom: 20px;
+  }
+  
   .form-group-left label {
     display: block;
     margin-bottom: 5px;
-    color: #3c6e47;
+    font-weight: bold;
   }
   
   .form-group-left input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
   }
@@ -77,8 +88,8 @@
   }
   
   .fees-table th {
-    background-color: #3c6e47;
-    color: white;
+    background-color: #e0f2f1;
+    color: #2e7d32;
   }
   
   .total-label {
@@ -88,15 +99,19 @@
   
   .total-amount {
     font-weight: bold;
-    color: #3c6e47;
+    color: #2e7d32;
   }
   
   /* Signature Section */
   .signatures {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .signatures p {
     text-align: center;
-    margin-top: 20px;
+    font-weight: bold;
   }
   
   .prepared-by, .chief {
@@ -115,17 +130,17 @@
   
   /* Add Row and Submit Button */
   .add-row-button, .submit-button {
-    background-color: #3c6e47;
-    color: white;
+    background-color: #2e7d32;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 10px;
+    margin-top: 10px;
   }
   
   .add-row-button:hover, .submit-button:hover {
-    background-color: #2d5036;
+    background-color: #388e3c;
   }
   
   /* Remove Button */
@@ -142,3 +157,16 @@
     background-color: #c0392b;
   }
   
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .form-group:last-child {
+    margin-right: 0;
+  }
