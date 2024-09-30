@@ -31,7 +31,7 @@ const Home = () => {
           <div className="permitCard">
             <h3 className="permitTitle">Certificate of Verification</h3>
             <p className="permitDescription">Application for Certificate of Verification</p>
-            <button className="applyButton">APPLY</button>
+            <Link to="/cov" className="applyButton">APPLY</Link>
           </div>
 
           {/* Private Tree Plantation Registration */}
@@ -53,6 +53,12 @@ const Home = () => {
             <h3 className="permitTitle">Special/Private Land Timber Permit</h3>
             <p className="permitDescription">Application for Special Private Land Timber Permit</p>
             <button className="applyButton">APPLY</button>
+          </div>
+
+          <div className="permitCard">
+            <h3 className="permitTitle">Order of Payment</h3>
+            <p className="permitDescription">Order of Payment for every template</p>
+            <Link to="/order" className="applyButton">APPLY</Link>
           </div>
 
           {/* National Government Agency Tree Cutting Permit */}

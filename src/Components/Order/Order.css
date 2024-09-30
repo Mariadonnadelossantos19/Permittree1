@@ -1,0 +1,144 @@
+/* Container for the entire form */
+.order-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Header section */
+  .header {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .header h2 {
+    font-size: 22px;
+    color: #3c6e47; /* Forest Green */
+  }
+  
+  .header h4 {
+    font-size: 14px;
+    color: #3c6e47; /* Forest Green */
+  }
+  
+  /* Bill info section */
+  .bill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  .bill-info div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .bill-info label {
+    margin-right: 5px;
+    color: #3c6e47;
+  }
+  
+  .bill-date {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Form input styling */
+  .form-group-left label {
+    display: block;
+    margin-bottom: 5px;
+    color: #3c6e47;
+  }
+  
+  .form-group-left input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Table styling */
+  .fees-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .fees-table th, .fees-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .fees-table th {
+    background-color: #3c6e47;
+    color: white;
+  }
+  
+  .total-label {
+    text-align: right;
+    font-weight: bold;
+  }
+  
+  .total-amount {
+    font-weight: bold;
+    color: #3c6e47;
+  }
+  
+  /* Signature Section */
+  .signatures {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .prepared-by, .chief {
+    width: 48%;
+  }
+  
+  .prepared-by p, .chief p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .prepared-by strong, .chief strong {
+    font-weight: bold;
+    color: #3c6e47;
+  }
+  
+  /* Add Row and Submit Button */
+  .add-row-button, .submit-button {
+    background-color: #3c6e47;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .add-row-button:hover, .submit-button:hover {
+    background-color: #2d5036;
+  }
+  
+  /* Remove Button */
+  .remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .remove-button:hover {
+    background-color: #c0392b;
+  }
+  
