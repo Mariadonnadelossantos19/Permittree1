@@ -1,68 +1,113 @@
-/* NGA.css */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  h3, h4 {
-    text-align: center;
-    color: #2e7d32; /* Forest green color */
-  }
-  
-  label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  
-  input[type="text"], input[type="checkbox"] {
-    margin-bottom: 15px;
-    width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  input[type="checkbox"] {
-    width: auto;
-    margin-right: 10px;
-  }
-  
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #2e7d32;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button:hover {
-    background-color: #1b5e20;
-  }
-  
-  p {
-    font-style: italic;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  div {
-    margin-bottom: 10px;
-  }
-  
-  input[type="checkbox"] + label {
-    display: inline;
-  }
-  
-  
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4fdf4;
+  border: 1px solid #a2d5a2;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  text-align: center;
+  color: #1a237e;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-subtitle {
+  text-align: center;
+  color: #d32f2f;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #004d00;
+  font-size: 18px;
+  border-bottom: 1px solid #c4e5c4;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="file"],
+.form-group input[type="radio"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9fff9;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-group label {
+  font-weight: normal;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007a33;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #005c26;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.add-more, .remove {
+  background-color: #1e88e5;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove {
+  background-color: #e53935;
+}
+
+.add-more:hover {
+  background-color: #1565c0;
+}
+
+.remove:hover {
+  background-color: #c62828;
+}
