@@ -3,6 +3,8 @@ import Home from './Components/Home/Home'; // Corrected path
 import PTPR from './Components/PTPR/PTPR';
 import COV from './Components/COV/COV';
 import Order from './Components/Order/Order';
+import NGA from './Components/NGA/NGA';
+
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/ptpr" element={<PTPR />} />
         <Route path="/cov" element={<COV/>}/>
         <Route path="/order" element={<Order/>}/>
+        <Route path="/nga" element={<NGA/>}/>
+
 
       </Routes>
     </Router>

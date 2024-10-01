@@ -65,7 +65,7 @@ const Home = () => {
           <div className="permitCard">
             <h3 className="permitTitle">National Government Agency Tree Cutting Permit</h3>
             <p className="permitDescription">Application for Public Tree cutting permit</p>
-            <button className="applyButton">APPLY</button>
+            <Link to="/nga" className="applyButton">APPLY</Link>
           </div>
         </div>
       </div>
