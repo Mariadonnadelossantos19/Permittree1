@@ -22,9 +22,9 @@ const Home = () => {
         <div className="permitGrid">
           {/* Chainsaw Registration */}
           <div className="permitCard">
-            <h3 className="permitTitle">Chainsaw Registration</h3>
-            <p className="permitDescription">Application for Chainsaw registration</p>
-            <button className="applyButton">APPLY</button>
+            <h3 className="permitTitle">Paymongo</h3>
+            <p className="permitDescription">Pay Now</p>
+            <Link to="/paymongo" className="applyButton">APPLY</Link>
           </div>
 
           {/* Certificate of Verification */}
@@ -50,9 +50,9 @@ const Home = () => {
 
           {/* Special/Private Land Timber Permit */}
           <div className="permitCard">
-            <h3 className="permitTitle">Special/Private Land Timber Permit</h3>
-            <p className="permitDescription">Application for Special Private Land Timber Permit</p>
-            <button className="applyButton">APPLY</button>
+            <h3 className="permitTitle">Tree cutting for  public safety</h3>
+            <p className="permitDescription">Application for </p>
+            <Link to="/cov" className="applyButton">APPLY</Link>
           </div>
 
           <div className="permitCard">

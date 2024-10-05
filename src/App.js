@@ -4,7 +4,8 @@ import PTPR from './Components/PTPR/PTPR';
 import COV from './Components/COV/COV';
 import Order from './Components/Order/Order';
 import NGA from './Components/NGA/NGA';
-
+import TCP_Public from './Components/TCP_Public/TCP_Public';
+import Paymongo from './Components/Paymongo/Paymongo';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <Route path="/cov" element={<COV/>}/>
         <Route path="/order" element={<Order/>}/>
         <Route path="/nga" element={<NGA/>}/>
+        <Route path="/tcp_public" element={<TCP_Public/>}/>
+        <Route path="/paymongo" element={<Paymongo/>}/>
+
 
 
       </Routes>
