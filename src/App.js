@@ -6,7 +6,7 @@ import Order from './Components/Order/Order';
 import NGA from './Components/NGA/NGA';
 import TCP_Public from './Components/TCP_Public/TCP_Public';
 import Paymongo from './Components/Paymongo/Paymongo';
-
+import BillCollectorDashboard from './Components/BillCollectorDashboard/BillCollectorDashboard';
 function App() {
   return (
     <Router>
@@ -19,6 +19,7 @@ function App() {
         <Route path="/nga" element={<NGA/>}/>
         <Route path="/tcp_public" element={<TCP_Public/>}/>
         <Route path="/paymongo" element={<Paymongo/>}/>
+        <Route path="/bill-collector-dashboard" element={<BillCollectorDashboard/>}/>
 
 
 

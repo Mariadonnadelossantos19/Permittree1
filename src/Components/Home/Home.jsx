@@ -20,11 +20,18 @@ const Home = () => {
         <h1 className="pageTitle">Permit Applications</h1>
 
         <div className="permitGrid">
-          {/* Chainsaw Registration */}
+          {/* Paymongo */}
           <div className="permitCard">
             <h3 className="permitTitle">Paymongo</h3>
             <p className="permitDescription">Pay Now</p>
-            <Link to="/paymongo" className="applyButton">APPLY</Link>
+            <Link to="/bill-collector-dashboard" className="applyButton">APPLY</Link>
+          </div>
+
+          {/* Bill Collector Dashboard */}
+          <div className="permitCard">
+            <h3 className="permitTitle">Bill Collector Dashboard</h3>
+            <p className="permitDescription">Pay Now</p>
+            <Link to="/bill-collector-dashboard" className="applyButton">APPLY</Link>
           </div>
 
           {/* Certificate of Verification */}
@@ -48,13 +55,14 @@ const Home = () => {
             <button className="applyButton">APPLY</button>
           </div>
 
-          {/* Special/Private Land Timber Permit */}
+          {/* Tree Cutting for Public Safety */}
           <div className="permitCard">
-            <h3 className="permitTitle">Tree cutting for  public safety</h3>
-            <p className="permitDescription">Application for </p>
+            <h3 className="permitTitle">Tree Cutting for Public Safety</h3>
+            <p className="permitDescription">Application for Tree Cutting</p>
             <Link to="/cov" className="applyButton">APPLY</Link>
           </div>
 
+          {/* Order of Payment */}
           <div className="permitCard">
             <h3 className="permitTitle">Order of Payment</h3>
             <p className="permitDescription">Order of Payment for every template</p>
@@ -64,7 +72,7 @@ const Home = () => {
           {/* National Government Agency Tree Cutting Permit */}
           <div className="permitCard">
             <h3 className="permitTitle">National Government Agency Tree Cutting Permit</h3>
-            <p className="permitDescription">Application for Public Tree cutting permit</p>
+            <p className="permitDescription">Application for Public Tree Cutting Permit</p>
             <Link to="/nga" className="applyButton">APPLY</Link>
           </div>
         </div>
