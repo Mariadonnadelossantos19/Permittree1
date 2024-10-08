@@ -59,7 +59,7 @@ const Home = () => {
           <div className="permitCard">
             <h3 className="permitTitle">Tree Cutting for Public Safety</h3>
             <p className="permitDescription">Application for Tree Cutting</p>
-            <Link to="/cov" className="applyButton">APPLY</Link>
+            <Link to="/tcp_public" className="applyButton">APPLY</Link>
           </div>
 
           {/* Order of Payment */}

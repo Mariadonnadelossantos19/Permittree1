@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Components/Home'; // Adjusted path
-import PTPR from './ApplicationForms/PTPR'; // Adjusted path
-import COV from './ApplicationForms/COV'; // Adjusted path
-import Order from './Components/Order'; // Adjusted path
-import NGA from './ApplicationForms/NGA'; // Adjusted path
-import TCP_Public from './ApplicationForms/TCP_Public'; // Adjusted path
-import Paymongo from './Components/Paymongo'; // Adjusted path
-import BillCollectorDashboard from './Components/BillCollectorDashboard'; // Adjusted path
+import Home from './Components/Home/Home';
+import PTPR from './Components/PTPR/PTPR';
+import COV from './Components/COV/COV';
+import Order from './Components/Order/Order';
+import NGA from './Components/NGA/NGA';
+import TCP_Public from './Components/TCP_Public/TCP_Public';
+import Paymongo from './Components/Paymongo/Paymongo';
+import BillCollectorDashboard from './Components/BillCollectorDashboard/BillCollectorDashboard';
 
 function App() {
   return (
