@@ -83,6 +83,17 @@ const NGA = () => {
     setCurrentStep(currentStep - 1);
   };
 
+  const offices = [
+    "DPWH - Department of Public Works and Highways",
+    "DOTr - Department of Transportation",
+    "DepED - Department of Education",
+    "DA - Department of Agriculture",
+    "DOH - Department of Health",
+    "CHED - Commission on Higher Education",
+    "DOE - Department of Energy",
+    "NIA - National Irrigation Administration"
+  ];
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -183,14 +194,21 @@ const NGA = () => {
           <div className="section nature-inspired">
             <h2>Agency</h2>
             <div className="form-group">
-              <input
-                type="text"
-                name="officeName"
+              <label htmlFor="officeName">Office Name:</label>
+              <select
+                id="officeName"
+                name="officeName" 
                 value={formData.officeName}
                 onChange={handleChange}
-                placeholder="Office Name"
                 required
-              />
+              >
+                <option value="">Select an office</option>
+                {offices.map((office, index) => (
+                  <option key={index} value={office}>
+                    {office}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="form-group">
               <input

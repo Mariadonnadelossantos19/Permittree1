@@ -38,12 +38,19 @@ function TCP_Public() {
   const nextStep = () => setCurrentStep(currentStep + 1);
   const prevStep = () => setCurrentStep(currentStep - 1);
 
+  const steps = [
+    { number: 1, title: 'Applicant Details' },
+    { number: 2, title: 'Project Location' },
+    { number: 3, title: 'Location Type & Upload Requirements' },
+    { number: 4, title: 'Review and Submit' },
+  ];
+
   const renderStep = () => {
     switch(currentStep) {
       case 1:
         return (
           <div className="form-step">
-            <h2>Applicant Details</h2>
+            <h2>{steps[0].title}</h2>
             <input
               type="text"
               name="name"
@@ -75,13 +82,15 @@ function TCP_Public() {
               placeholder="Complete Address"
               required
             ></textarea>
-            <button onClick={nextStep}>Next</button>
+            <div className="button-group">
+              <button onClick={nextStep}>Next</button>
+            </div>
           </div>
         );
       case 2:
         return (
           <div className="form-step">
-            <h2>Project Location</h2>
+            <h2>{steps[1].title}</h2>
             <select
               name="region"
               value={formData.region}
@@ -125,14 +134,16 @@ function TCP_Public() {
               placeholder="Specific Location (e.g., street name, landmarks)"
               required
             ></textarea>
-            <button onClick={prevStep}>Previous</button>
-            <button onClick={nextStep}>Next</button>
+            <div className="button-group">
+              <button onClick={prevStep}>Previous</button>
+              <button onClick={nextStep}>Next</button>
+            </div>
           </div>
         );
       case 3:
         return (
           <div className="form-step">
-            <h2>Location Type & Upload Requirements</h2>
+            <h2>{steps[2].title}</h2>
             <select
               name="locationType"
               value={formData.locationType}
@@ -182,14 +193,16 @@ function TCP_Public() {
                 required
               />
             </div>
-            <button onClick={prevStep}>Previous</button>
-            <button onClick={nextStep}>Next</button>
+            <div className="button-group">
+              <button onClick={prevStep}>Previous</button>
+              <button onClick={nextStep}>Next</button>
+            </div>
           </div>
         );
       case 4:
         return (
           <div className="form-step">
-            <h2>Review and Submit</h2>
+            <h2>{steps[3].title}</h2>
             {/* Display a summary of all entered information */}
             <div className="review-section">
               <h3>Applicant Details</h3>
@@ -214,8 +227,10 @@ function TCP_Public() {
               <p>Site Photos: {formData.sitePhotos ? 'Uploaded' : 'Not uploaded'}</p>
               <p>Sketch Plan: {formData.sketchPlan ? 'Uploaded' : 'Not uploaded'}</p>
             </div>
-            <button onClick={prevStep}>Previous</button>
-            <button onClick={() => {/* Handle form submission */}}>Submit Application</button>
+            <div className="button-group">
+              <button onClick={prevStep}>Previous</button>
+              <button onClick={() => {/* Handle form submission */}}>Submit Application</button>
+            </div>
           </div>
         );
       default:
@@ -232,12 +247,16 @@ function TCP_Public() {
         (PLAZA, PUBLIC PARKS, SCHOOL, AND POLITICAL SUBDIVISIONS)
       </h2>
 
-      <div className="progress-bar">
-        <div className="progress" style={{width: `${(currentStep / 4) * 100}%`}}></div>
-      </div>
-
       <div className="step-indicator">
-        Step {currentStep} of 4
+        {steps.map((step) => (
+          <div 
+            key={step.number} 
+            className={`step ${currentStep === step.number ? 'active' : ''} ${currentStep > step.number ? 'completed' : ''}`}
+          >
+            <div className="step-number">{step.number}</div>
+            <div className="step-title">{step.title}</div>
+          </div>
+        ))}
       </div>
 
       {renderStep()}

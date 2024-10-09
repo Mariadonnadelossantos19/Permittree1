@@ -1,162 +1,118 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import './PTPR.css';
-import '../Home/Home'
 
 const PTPR = () => {
   const navigate = useNavigate();
-  const [warningMessage, setWarningMessage] = useState(null);
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState({});
+
+  const steps = [
+    { title: "Owner Information", fields: ["name", "address", "contactNumber", "email"] },
+    { title: "Plantation Location", fields: ["oct", "tct", "taxDeclaration", "barangay", "municipality", "province", "totalLotArea", "areaDevotedToPlantation"] },
+    { title: "Tree Details", fields: ["treeSpecies", "numberOfTrees", "treeSpacing", "yearPlanted"] },
+    { title: "Requirements Upload", fields: ["letterOfRequest", "titleOrTaxDeclaration", "darCertification", "specialPowerOfAttorney"] },
+    { title: "Review and Submit", fields: [] }
+  ];
+
+  const handleNext = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentStep > 1) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
 
   const handleSaveDraft = () => {
-    setWarningMessage({
-      message: 'Are you sure you want to save as draft?',
-      action: 'saveDraft'
-    });
-  };
+    alert('Draft saved successfully!');
+  };  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setWarningMessage({
-      message: 'Are you sure you want to submit?',
-      action: 'submit'
-    });
+    // Perform form submission logic here
+    alert('Form submitted successfully!');
+    // Or navigate to a success page
+    // navigate('/success');
   };
 
-  const handleConfirm = () => {
-    if (warningMessage.action === 'saveDraft') {
-      // Add your save draft logic here
-      alert('Draft saved successfully!');
-    } else if (warningMessage.action === 'submit') {
-      // Add your submit logic here
-      alert('Form submitted successfully!');
-    }
-    setWarningMessage(null);
+  const handleInputChange = (field, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [field]: value
+    }));
   };
 
-  const handleCancel = () => {
-    setWarningMessage(null);
+  const renderFormFields = (fields) => {
+    return fields.map(field => (
+      <div key={field} className="ptpr-section">
+        <label>{field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')} <span className="ptpr-required">*</span></label>
+        <input 
+          type={field.includes('email') ? 'email' : field.includes('file') ? 'file' : 'text'} 
+          className={field.includes('file') ? "ptpr-fileInput" : "ptpr-inputField"} 
+          required={!field.includes('darCertification') && !field.includes('specialPowerOfAttorney')}
+          value={formData[field] || ''}
+          onChange={(e) => handleInputChange(field, e.target.value)}
+        />
+      </div>
+    ));
+  };
+
+  const renderReviewSection = () => {
+    return steps.slice(0, -1).map((step, index) => (
+      <div key={index} className="ptpr-reviewSection">
+        <h4>{step.title}</h4>
+        {step.fields.map(field => (
+          <p key={field}><strong>{field.charAt(0).toUpperCase() + field.slice(1).replace(/([A-Z])/g, ' $1')}:</strong> {formData[field] || 'Not provided'}</p>
+        ))}
+      </div>
+    ));
   };
 
   return (
-    <div className="formCard">
-      <h2 className="formTitle">Private Tree Plantation Registration</h2>
-      
-      {warningMessage && (
-        <div className="warningMessage">
-          <p>{warningMessage.message}</p>
-          <button onClick={handleConfirm}>Yes</button>
-          <button onClick={handleCancel}>No</button>
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        {/* Owner Basic Information */}
-        <h3 className="formSubtitle">Owner Basic Information</h3>
-        <div className="formGrid">
-          <div className="section">
-            <label>Name <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Address <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Contact Number <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Email Address <span className="required">*</span>:</label>
-            <input type="email" className="inputField" required />
-          </div>
+    <div className="ptpr-container">
+      <div className="ptpr-formCard">
+        <h2 className="ptpr-formTitle">Private Tree Plantation Registration</h2>
+        
+        <div className="ptpr-stepIndicator">
+          {steps.map((step, index) => (
+            <div key={index} className={`ptpr-step ${currentStep === index + 1 ? 'active' : ''}`}>
+              <div className="ptpr-stepNumber">{index + 1}</div>
+              <div className="ptpr-stepTitle">{step.title}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Tree Plantation Location */}
-        <h3 className="formSubtitle">Tree Plantation Location</h3>
-        <div className="formGrid">
-          <div className="section">
-            <label>OCT (Original Certificate of Title) <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>TCT (Transfer Certificate of Title) <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Tax Declaration Number <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Barangay <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Municipality <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Province <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Total lot Area <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Total lot Area Devoted to Plantation <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Trees of Species Planted <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>No of Trees Planted <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Spacing of Trees Planted <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-          <div className="section">
-            <label>Year Planted <span className="required">*</span>:</label>
-            <input type="text" className="inputField" required />
-          </div>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <h3 className="ptpr-formSubtitle">{steps[currentStep - 1].title}</h3>
+          {currentStep < steps.length - 1 ? (
+            <div className="ptpr-formGrid">
+              {renderFormFields(steps[currentStep - 1].fields)}
+            </div>
+          ) : (
+            <div className="ptpr-reviewContainer">
+              {renderReviewSection()}
+            </div>
+          )}
 
-        {/* Requirements Upload */}
-        <h3 className="formSubtitle">Requirements (Upload Files)</h3>
-        <div className="formGrid">
-          <div className="section">
-            <label>Letter of Request <span className="required">*</span>:</label>
-            <input type="file" className="fileInput" required />
+          <div className="ptpr-buttonContainer">
+            {currentStep > 1 && (
+              <button type="button" className="ptpr-backButton" onClick={handlePrevious}>Previous</button>
+            )}
+            {currentStep < steps.length - 1 ? (
+              <button type="button" className="ptpr-nextButton" onClick={handleNext}>Next</button>
+            ) : (
+              <>
+                <button type="button" className="ptpr-saveDraftButton" onClick={handleSaveDraft}>Save as Draft</button>
+                <button type="submit" className="ptpr-submitButton">Submit</button>
+              </>
+            )}
           </div>
-          <div className="section">
-            <label>Title or Tax Declaration <span className="required">*</span>:</label>
-            <input type="file" className="fileInput" required />
-          </div>
-          <div className="section">
-            <label>DAR Certification (if title is CLOA):</label>
-            <input type="file" className="fileInput" />
-          </div>
-        </div>
-
-        {/* Additional Requirements */}
-        <h3 className="formSubtitle">Additional Requirements (if the applicant is a representative)</h3>
-        <div className="formGrid">
-          <div className="section">
-            <label>Special Power of Attorney:</label>
-            <input type="file" className="fileInput" />
-          </div>
-        </div>
-
-        <div className="buttonContainer">
-          <button type="button" className="backButton" onClick={() => navigate(-1)}>Back</button>
-          <button type="button" className="saveDraftButton" onClick={handleSaveDraft}>Save as Draft</button>
-          <button type="submit" className="submitButton">Submit</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };
