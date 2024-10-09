@@ -23,6 +23,37 @@ const NGA = () => {
     pambClearance: ''
   });
 
+  const [currentStep, setCurrentStep] = useState(1);
+
+  const steps = [
+    "Requesting Party",
+    "Project Location",
+    "Agency",
+    "Upload Requirements"
+  ];
+
+  const renderStepIndicator = () => {
+    return (
+      <div className="step-indicator">
+        {steps.map((step, index) => (
+          <div key={index} className={`step ${currentStep === index + 1 ? 'active' : ''} ${currentStep > index + 1 ? 'completed' : ''}`}>
+            <div className="step-number">{index + 1}</div>
+            <div className="step-title">{step}</div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const renderProgressBar = () => {
+    const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
+    return (
+      <div className="progress-bar">
+        <div className="progress" style={{ width: `${progress}%` }}></div>
+      </div>
+    );
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -44,187 +75,266 @@ const NGA = () => {
     console.log(formData);
   };
 
+  const nextStep = () => {
+    setCurrentStep(currentStep + 1);
+  };
+
+  const prevStep = () => {
+    setCurrentStep(currentStep - 1);
+  };
+
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <div className="section nature-inspired">
+            <h2>Requesting Party</h2>
+            <div className="form-group">
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Name"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="tel"
+                name="contactNumber"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                placeholder="Contact Number"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+                placeholder="Position"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email"
+                required
+              />
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="section nature-inspired">
+            <h2>Project Location</h2>
+            <div className="form-group">
+              <input
+                type="text"
+                name="province"
+                value={formData.province}
+                onChange={handleChange}
+                placeholder="Province"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="municipality1"
+                value={formData.municipality1}
+                onChange={handleChange}
+                placeholder="Municipality"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="barangay1"
+                value={formData.barangay1}
+                onChange={handleChange}
+                placeholder="Barangay"
+                required
+              />
+            </div>
+            <div className="form-group checkbox">
+              <label>
+                <input
+                  type="checkbox"
+                  name="isProtectedArea"
+                  checked={formData.isProtectedArea}
+                  onChange={handleChange}
+                />
+                Is this a protected area?
+              </label>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="section nature-inspired">
+            <h2>Agency</h2>
+            <div className="form-group">
+              <input
+                type="text"
+                name="officeName"
+                value={formData.officeName}
+                onChange={handleChange}
+                placeholder="Office Name"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                name="officeAddress"
+                value={formData.officeAddress}
+                onChange={handleChange}
+                placeholder="Office Address"
+                required
+              />
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="section nature-inspired">
+            <h2>Upload Requirements</h2>
+            <div className="upload-grid">
+              <div className="upload-column">
+                <div className="form-group">
+                  <label>
+                    Barangay Certification:
+                    <input
+                      type="file"
+                      name="barangayCert"
+                      onChange={handleFileChange}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    Municipality Certification:
+                    <input
+                      type="file"
+                      name="municipalityCert"
+                      onChange={handleFileChange}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    Site Plan:
+                    <input
+                      type="file"
+                      name="sitePlan"
+                      onChange={handleFileChange}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    Waiver:
+                    <input
+                      type="file"
+                      name="waiver"
+                      onChange={handleFileChange}
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className="upload-column">
+                <div className="form-group">
+                  <label>
+                    ECC:
+                    <input
+                      type="file"
+                      name="ecc"
+                      onChange={handleFileChange}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    FPIC (if applicable):
+                    <input
+                      type="file"
+                      name="fpic"
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    PAMB Clearance (if applicable):
+                    <input
+                      type="file"
+                      name="pambClearance"
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                </div>
+                <div className="form-group">
+                  <label>
+                    Other Attachment:
+                    <input
+                      type="file"
+                      name="otherAttachment"
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="form-container">
       <h1 className="form-title">ISSUANCE OF TREE CUTTING AND/OR EARTH BALLING PERMIT FOR TREES AFFECTED BY PROJECTS OF NATIONAL GOVERNMENT AGENCIES</h1>
       <h4>(DPWH, DOTr, DepED, DA, DOH, CHED, DOE and NIA)</h4>
 
+      {renderStepIndicator()}
+      {renderProgressBar()}
+
       <form onSubmit={handleSubmit} className="permit-form">
-        <div className="section">
-          <h2>Requesting Party</h2>
-          <div className="form-group">
-            <label htmlFor="name">Name: *</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Lastname, Firstname M.I."
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="contactNumber">Contact Number:</label>
-            <input
-              type="tel"
-              id="contactNumber"
-              name="contactNumber"
-              placeholder="e.g. 09876543210"
-              value={formData.contactNumber}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="position">Position:</label>
-            <input
-              type="text"
-              id="position"
-              name="position"
-              value={formData.position}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email Address:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </div>
+        <h2 className="current-step-title">{steps[currentStep - 1]}</h2>
+        {renderStep()}
+
+        <div className="navigation-buttons">
+          {currentStep > 1 && (
+            <button type="button" onClick={prevStep} className="prev-btn">
+              Previous
+            </button>
+          )}
+          {currentStep < steps.length && (
+            <button type="button" onClick={nextStep} className="next-btn">
+              Next
+            </button>
+          )}
+          {currentStep === steps.length && (
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
+          )}
         </div>
-
-        <div className="section">
-          <h2>Project Location</h2>
-          <div className="form-group">
-            <label htmlFor="province">Province:</label>
-            <input
-              type="text"
-              id="province"
-              name="province"
-              value={formData.province}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="municipality1">Municipality 1:</label>
-            <input
-              type="text"
-              id="municipality1"
-              name="municipality1"
-              value={formData.municipality1}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="barangay1">Barangay 1:</label>
-            <input
-              type="text"
-              id="barangay1"
-              name="barangay1"
-              value={formData.barangay1}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="section">
-          <h2>Agency</h2>
-          <div className="form-group">
-            <label htmlFor="officeName">Office Name:</label>
-            <input
-              type="text"
-              id="officeName"
-              name="officeName"
-              value={formData.officeName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="officeAddress">Office Address:</label>
-            <input
-              type="text"
-              id="officeAddress"
-              name="officeAddress"
-              value={formData.officeAddress}
-              onChange={handleChange}
-            />
-          </div>
-        </div>
-
-        <div className="section">
-          <h2>Upload Requirements</h2>
-          <div className="form-group">
-            <label>Within Protected Area? *</label>
-            <div className="radio-group">
-              <label>
-                <input
-                  type="radio"
-                  name="isProtectedArea"
-                  value={true}
-                  checked={formData.isProtectedArea === true}
-                  onChange={handleChange}
-                />{' '}
-                Yes
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="isProtectedArea"
-                  value={false}
-                  checked={formData.isProtectedArea === false}
-                  onChange={handleChange}
-                />{' '}
-                No
-              </label>
-            </div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="barangayCert">LGU Endorsement/ Certification of No Objection (Barangay) *</label>
-            <input type="file" id="barangayCert" name="barangayCert" onChange={handleFileChange} required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="municipalityCert">LGU Endorsement/ Certification of No Objection (Municipality/City) (optional)</label>
-            <input type="file" id="municipalityCert" name="municipalityCert" onChange={handleFileChange} />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="otherAttachment">Other Attachment (optional)</label>
-            <input type="file" id="otherAttachment" name="otherAttachment" onChange={handleFileChange} />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="sitePlan">Approved Site Development Plan/ Infrastructure Plan with Tree Charting *</label>
-            <input type="file" id="sitePlan" name="sitePlan" onChange={handleFileChange} required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="waiver">Waiver/Consent of Owner/s, if Titled Property</label>
-            <input type="file" id="waiver" name="waiver" onChange={handleFileChange} />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="ecc">Environmental Compliance Certificate (ECC)/ Certificate of Non-Coverage (CNC) *</label>
-            <input type="file" id="ecc" name="ecc" onChange={handleFileChange} required />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="fpic">Free, Prior and Informed Consent (FPIC), if applicable</label>
-            <input type="file" id="fpic" name="fpic" onChange={handleFileChange} />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="pambClearance">PAMB Clearance/Resolution, if within Protected Areas</label>
-            <input type="file" id="pambClearance" name="pambClearance" onChange={handleFileChange} />
-          </div>
-        </div>
-
-        <button type="submit" className="submit-btn">Submit</button>
       </form>
     </div>
   );
