@@ -1,0 +1,225 @@
+.cov-certificate {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 12px;
+  line-height: 1.4;
+  position: relative;
+}
+
+.certificate-header {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.header-text p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.red-line {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  border-top: 2px solid #800000;
+}
+
+.control-number-container {
+  text-align: left;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.control-number-label {
+  margin-right: 5px;
+}
+
+.control-number-value {
+  display: inline-block;
+  min-width: 150px; /* Adjust this value as needed */
+  border-bottom: 1px solid #000;
+}
+
+.title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.main-content, .certification {
+  text-align: justify;
+}
+
+.main-content {
+  margin-left: 0; /* Remove any left margin */
+  padding-left: 0; /* Remove any left padding */
+}
+
+.main-content p, .main-content ol {
+  margin-left: 0; /* Ensure no left margin on paragraphs and lists */
+}
+
+.data-line {
+  display: inline-block;
+  min-width: 100px;
+  border-bottom: 1px solid #000;
+}
+
+ol {
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+.signature-line {
+  margin-left: 0;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.certification h2 {
+  text-align: center;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 5px;
+  vertical-align: top;
+}
+
+td:first-child {
+  width: 150px;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.signature-block, .final-signature {
+  text-align: center;
+  width: 45%;
+}
+
+.final-signature {
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 10px;
+  font-style: italic;
+}
+
+.arrival-confirmation {
+  margin-top: 30px;
+  font-size: 11px;
+}
+
+.note, .permit-warning {
+  margin: 5px 0;
+}
+
+.permit-warning {
+  font-weight: bold;
+  margin: 15px 0; /* Add some vertical spacing */
+}
+
+.dotted-line {
+  border-top: 1px dotted #000;
+  margin: 10px 0;
+}
+
+.arrival-confirmation h3 {
+  text-align: center;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.confirmation-details {
+  margin-top: 10px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.detail-row p {
+  width: 48%;
+  margin: 0;
+}
+
+.copy-details {
+  margin-top: 15px;
+}
+
+.copy-details p {
+  margin: 2px 0;
+}
+
+.validity-note {
+  margin-top: 10px;
+  font-style: italic;
+  text-align: center;
+}
+
+.route-and-validity {
+  margin: 20px 0;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.info-label {
+  width: 120px; /* Adjust this width as needed */
+  font-weight: bold;
+}
+
+.info-value {
+  flex: 1;
+}
+
+.data-line {
+  display: inline-block;
+  min-width: 200px; /* Adjust this width as needed */
+  border-bottom: 1px solid #000;
+}
+
+.main-content ol {
+  padding-left: 40px; /* Increase left padding for the entire list */
+}
+
+.main-content ol li {
+  margin-bottom: 10px; /* Add some vertical space between list items */
+}
+
+.main-content ol li .data-line {
+  margin-left: 10px; /* Add left margin to the data line within list items */
+}
+
+.centered {
+  text-align: center;
+}

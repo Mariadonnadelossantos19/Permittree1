@@ -1,148 +1,191 @@
-/* Global Styles */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f1f5f9;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  h1 {
-    font-size: 28px;
-    text-align: center;
-    color: #2e7d32; /* Darker green */
-    margin-bottom: 20px;
-  }
-  
-  /* Form Container */
-  .form-container {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Form Groups */
-  .form-group {
-    margin-bottom: 15px; /* Reduced margin for form groups */
-  }
-  
-  label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 5px; /* Reduced space below labels */
-    color: #3a3a3a;
-  }
-  
-  /* Input Styles */
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 8px 12px; /* Reduced padding */
-    border: 2px solid #cfcfcf;
-    border-radius: 8px;
-    background-color: #f8f8f8;
-    font-size: 14px; /* Reduced font size */
-    color: #333;
-    transition: all 0.3s ease;
-  }
-  
-  input[type="text"]:focus,
-  textarea:focus {
-    border-color: #2e7d32; /* Green border on focus */
-    background-color: #fff;
-    box-shadow: 0 0 5px rgba(46, 125, 50, 0.2);
-  }
-  
-  textarea {
-    resize: vertical;
-    min-height: 80px; /* Reduced min-height */
-  }
-  
-  /* File Upload Container */
-  .file-upload-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 20px; /* Space between items */
-  }
-  
-  .file-upload-group {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input[type="file"] {
-    padding: 8px; /* Reduced padding */
-    border: 2px dashed #cfcfcf;
-    border-radius: 8px;
-    background-color: #f8f8f8;
-    font-size: 14px; /* Reduced font size */
-  }
-  
-  input[type="file"]:hover {
-    border-color: #2e7d32;
-  }
-  
-  /* Button Styles */
-  .navigation-buttons {
-    display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
-    margin-top: 20px;
-  }
-  
-  .submit-btn,
-  .previous-btn {
-    padding: 10px 15px; /* Adjusted padding */
-    border: none;
-    border-radius: 8px;
-    font-size: 16px; /* Adjusted font size */
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    margin-left: 10px; /* Space between buttons */
-  }
-  
-  /* Adjusted right margin on button for better alignment */
-  .submit-btn {
-    margin-right: 0; /* Ensure no extra right margin */
-    background-color: #2e7d32;
-    color: white;
-  }
-  
-  .submit-btn:hover {
-    background-color: #1e5d22;
-  }
-  
-  .previous-btn {
-    margin-right: 0; /* Ensure no extra right margin */
-    background-color: #ffa726;
-    color: white;
-  }
-  
-  .previous-btn:hover {
-    background-color: #e67e22;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .form-container {
-      padding: 20px;
-    }
-  
-    h1 {
-      font-size: 22px;
-    }
-  
-    .submit-btn,
-    .previous-btn {
-      font-size: 16px;
-      padding: 10px;
-    }
-  
-    .file-upload-container {
-      grid-template-columns: 1fr; /* Stack in one column on small screens */
-    }
-  }
-  
+/* COV.css */
+
+.cov-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.cov-title {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: #e0e0e0;
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+  font-weight: bold;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.step.active .step-number {
+  background-color: #4CAF50;
+}
+
+.step.completed .step-number {
+  background-color: #4CAF50;
+}
+
+.step-title {
+  font-size: 14px;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.file-upload-group {
+  margin-bottom: 20px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.previous-btn {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.previous-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.next-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.next-btn:hover {
+  background-color: #45a049;
+}
+
+.submit-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #1e87db;
+}
+
+/* Add these styles to your existing CSS file */
+
+.review-section {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.review-section h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.review-section p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+.review-section strong {
+  color: #333;
+}
