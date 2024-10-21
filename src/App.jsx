@@ -11,6 +11,7 @@ import BillCollectorDashboard from './Components/BillCollectorDashboard/BillColl
 import CsawCertificate from './Components/Certificate/Csaw_certificate';
 import COVCertificate from './Components/Certificate/COV_certificate';
 import PTPRCertificate from './Components/Certificate/PTPR_certificate';
+import TCP_certificate from './Components/Certificate/TCP_certificate';
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/chainsaw-certificate" element={<CsawCertificate />} />
         <Route path="/certificate-of-verification" element={<COVCertificate />} />
         <Route path="/private-tree-plantation-registration" element={<PTPRCertificate />} />
+        <Route path="/tree-cutting-permit" element={<TCP_certificate />} />
       </Routes>
     </Router>
   );

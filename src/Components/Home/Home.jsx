@@ -16,6 +16,7 @@ const Home = () => {
     { title: "Chainsaw Certificate", description: "Application for Chainsaw Certificate of Registration", link: "/chainsaw-certificate" },
     { title: "Certificate of Verification", description: "Application for Certificate of Verification", link: "/certificate-of-verification" },
     { title: "Private Tree Plantation Registration", description: "Application for Private Tree Plantation Registration", link: "/private-tree-plantation-registration" },
+    { title: "Tree Cutting Permit", description: "Application for Tree Cutting Permit", link: "/tree-cutting-permit" },
   ];
 
   return (
