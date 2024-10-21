@@ -10,6 +10,7 @@ import Paymongo from './Components/Paymongo/Paymongo';
 import BillCollectorDashboard from './Components/BillCollectorDashboard/BillCollectorDashboard';
 import CsawCertificate from './Components/Certificate/Csaw_certificate';
 import COVCertificate from './Components/Certificate/COV_certificate';
+import PTPRCertificate from './Components/Certificate/PTPR_certificate';
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/bill-collector-dashboard" element={<BillCollectorDashboard />} />
         <Route path="/chainsaw-certificate" element={<CsawCertificate />} />
         <Route path="/certificate-of-verification" element={<COVCertificate />} />
+        <Route path="/private-tree-plantation-registration" element={<PTPRCertificate />} />
       </Routes>
     </Router>
   );

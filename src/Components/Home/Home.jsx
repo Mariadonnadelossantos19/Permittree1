@@ -15,6 +15,7 @@ const Home = () => {
     // Add the new chainsaw certificate here
     { title: "Chainsaw Certificate", description: "Application for Chainsaw Certificate of Registration", link: "/chainsaw-certificate" },
     { title: "Certificate of Verification", description: "Application for Certificate of Verification", link: "/certificate-of-verification" },
+    { title: "Private Tree Plantation Registration", description: "Application for Private Tree Plantation Registration", link: "/private-tree-plantation-registration" },
   ];
 
   return (
